@@ -1,13 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+<meta charset="UTF-8">
+<title>프로젝트 위키</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+:root{
+  --bg:#0d1117;
+  --panel:#161b22;
+  --border:#30363d;
+  --text:#e6edf3;
+  --muted:#8b949e;
+  --accent:#58a6ff;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,system-ui;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* 레이아웃 */
+.wrapper{
+  display:flex;
+  min-height:100vh;
+}
+
+/* 사이드바 */
+.sidebar{
+  width:260px;
+  background:var(--panel);
+  border-right:1px solid var(--border);
+  padding:16px;
+}
+
+.sidebar h1{
+  font-size:18px;
+  margin:0 0 12px;
+}
+
+.sidebar a{
+  display:block;
+  padding:8px 10px;
+  margin-bottom:4px;
+  color:var(--text);
+  text-decoration:none;
+  border-radius:6px;
+}
+
+.sidebar a:hover{
+  background:#21262d;
+}
+
+.sidebar a.active{
+  background:var(--accent);
+  color:#000;
+  font-weight:600;
+}
+
+/* 본문 */
+.content{
+  flex:1;
+  padding:32px;
+  max-width:900px;
+}
+
+.content h2{
+  border-bottom:1px solid var(--border);
+  padding-bottom:6px;
+  margin-top:32px;
+}
+
+.content p{
+  line-height:1.7;
+  color:var(--muted);
+}
+
+.content code{
+  background:#161b22;
+  border:1px solid var(--border);
+  padding:2px 6px;
+  border-radius:6px;
+  color:#c9d1d9;
+}
+
+pre{
+  background:#161b22;
+  border:1px solid var(--border);
+  padding:16px;
+  border-radius:8px;
+  overflow:auto;
+}
+
+/* 상단 헤더 */
+.header{
+  margin-bottom:24px;
+}
+
+.header h2{
+  margin:0;
+}
+
+.footer{
+  margin-top:64px;
+  font-size:13px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  padding-top:16px;
+}
+</style>
 </head>
+
 <body>
-    <h1>Welcome to My Wedsite</h1>
-    <h1>1단계</h1>
-    <p>This is a simple website hosted on GitHub pages.</p>
+<div class="wrapper">
+
+  <!-- 사이드바 -->
+  <nav class="sidebar">
+    <h1>📚 위키</h1>
+    <a class="active" href="#intro">소개</a>
+    <a href="#install">설치</a>
+    <a href="#usage">사용법</a>
+    <a href="#structure">구조</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <!-- 본문 -->
+  <main class="content">
+
+    <div class="header">
+      <h2 id="intro">프로젝트 위키</h2>
+      <p>이 문서는 프로젝트에 대한 공식 위키입니다.</p>
+    </div>
+
+    <h2 id="install">설치</h2>
+    <p>다음 명령어로 프로젝트를 설치할 수 있습니다.</p>
+    <pre><code>git clone https://github.com/username/project.git</code></pre>
+
+    <h2 id="usage">사용법</h2>
+    <p>설치 후 아래와 같이 실행합니다.</p>
+    <pre><code>npm install
+npm run dev</code></pre>
+
+    <h2 id="structure">폴더 구조</h2>
+    <pre><code>
+project/
+ ├─ src/
+ ├─ docs/
+ ├─ README.md
+ └─ index.html
+    </code></pre>
+
+    <h2 id="faq">FAQ</h2>
+    <p><strong>Q.</strong> 이 위키는 어디에 쓰나요?</p>
+    <p><strong>A.</strong> GitHub Wiki 또는 GitHub Pages에서 문서용으로 사용합니다.</p>
+
+    <div class="footer">
+      © 2026 Project Wiki · GitHub Style
+    </div>
+
+  </main>
+</div>
 </body>
 </html>
