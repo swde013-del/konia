@@ -72,12 +72,41 @@ nav a:hover{
   background:white;
   transition:left 0.25s ease, width 0.25s ease;
 }
-/* ================================================= */
+/* ============================================ */
+
+/* ===== 접기 버튼 ===== */
+.toggle-wrap{
+  text-align:center;
+  background:var(--card);
+  border-bottom:5px solid var(--border);
+}
+
+#toggleBtn{
+  background:none;
+  border:none;
+  color:white;
+  font-size:14px;
+  padding:8px 18px;
+  cursor:pointer;
+  font-weight:600;
+}
+/* ==================== */
 
 main{
   max-width:1100px;
   margin:auto;
   padding:30px;
+  overflow:hidden;
+  transition:max-height 0.45s ease, opacity 0.35s ease;
+  max-height:5000px;
+  opacity:1;
+}
+
+main.folded{
+  max-height:0;
+  opacity:0;
+  padding-top:0;
+  padding-bottom:0;
 }
 
 section{
@@ -152,41 +181,28 @@ footer{
   <a href="#diplomacy">외교</a>
 </nav>
 
-<main>
+<!-- 접기 / 펼치기 버튼 -->
+<div class="toggle-wrap">
+  <button id="toggleBtn">내용 접기 ▲</button>
+</div>
+
+<main id="content">
 
 <section id="overview">
   <h2>소개</h2>
   <div class="grid">
-    <div class="info-box">
-      <h3>정식 국명</h3>
-      찰리아 공화국
-    </div>
-    <div class="info-box">
-      <h3>수도</h3>
-      민티아
-    </div>
-    <div class="info-box">
-      <h3>체제</h3>
-      사회민주주의
-    </div>
-    <div class="info-box">
-      <h3>공용어</h3>
-      찰리아어
-    </div>
+    <div class="info-box"><h3>정식 국명</h3>찰리아 공화국</div>
+    <div class="info-box"><h3>수도</h3>민티아</div>
+    <div class="info-box"><h3>체제</h3>사회민주주의</div>
+    <div class="info-box"><h3>공용어</h3>찰리아어</div>
   </div>
 </section>
 
 <section id="symbols">
   <h2>국기 · 지도</h2>
   <div class="grid">
-    <div>
-      <h3>국기</h3>
-      <img src="flag.png" alt="국기">
-    </div>
-    <div>
-      <h3>영토 지도</h3>
-      <img src="map.png" alt="지도">
-    </div>
+    <div><h3>국기</h3><img src="flag.png"></div>
+    <div><h3>영토 지도</h3><img src="map.png"></div>
   </div>
 </section>
 
@@ -195,89 +211,51 @@ footer{
   <ul class="timeline">
     <li><b>420년</b> – 타마티리시리아 왕국</li>
     <li><b>1218년</b> – 아리니아 왕정 수립</li>
-    <li><b>1253년</b> – 타마리아 내전</li>
-    <li><b>1257년</b> – 타마리아 왕정 수립</li>
-    <li><b>1410년</b> – 아리아에서 수리아로 천도</li>
-    <li><b>1825년</b> – 찰리아 왕국 건국</li>
-    <li><b>1833년</b> – 타마리아 쿠데타</li>
-    <li><b>1835년</b> – 타마리아 공화국 정부 수립</li>
-    <li><b>1836년</b> – 찰리아 공화당 창당</li>
-    <li><b>1839년</b> – 찰리아 공화당 당선</li>
-    <li><b>1849년</b> – 찰리아 공산당 당선</li>
-    <li><b>1857년</b> – 찰리아 민주당 창당</li>
-    <li><b>1963년</b> – 찰리아 공산혁명</li>
     <li><b>1981년</b> – 찰리아 공화국</li>
   </ul>
 </section>
 
-<section id="politics">
-  <h2>정치</h2>
-  <p>보통선거제를 도입한 민주주의 국가이다.</p>
-</section>
-
-<section id="Administrative">
-  <h2>행정</h2>
-  <p>주 · 준주 · 군 체계의 행정 구역을 가진다.</p>
-</section>
-
-<section id="culture">
-  <h2>문화 · 언어</h2>
-  <p>찰리아어는 교착어이며, 문화가 발전해있다.</p>
-</section>
-
-<section id="military">
-  <h2>군사</h2>
-  <p>상비군 체제와 국경 방위군을 보유한다.</p>
-</section>
-
-<section id="diplomacy">
-  <h2>외교</h2>
-  <p>속국과의 종주 관계를 유지한다.</p>
-</section>
+<section id="politics"><h2>정치</h2><p>보통선거 민주주의</p></section>
+<section id="Administrative"><h2>행정</h2><p>주 · 준주 · 군</p></section>
+<section id="culture"><h2>문화 · 언어</h2><p>찰리아어</p></section>
+<section id="military"><h2>군사</h2><p>상비군</p></section>
+<section id="diplomacy"><h2>외교</h2><p>종주 관계</p></section>
 
 </main>
 
-<footer>
-  찰리아 공화국 정부
-</footer>
-
-<footer>
-  문의 <a href="ansdml.html">여기를 클릭하여 문의해 주세요</a>.
-</footer>
+<footer>찰리아 공화국 정부</footer>
+<footer>문의 <a href="ansdml.html">여기를 클릭하여 문의해 주세요</a>.</footer>
 
 <script>
+/* 네비게이션 흰색 줄 */
 const nav = document.querySelector('nav');
 const indicator = document.querySelector('.nav-indicator');
 const links = nav.querySelectorAll('a');
-
 let activeLink = links[0];
 
 function moveIndicator(el){
-  const rect = el.getBoundingClientRect();
-  const navRect = nav.getBoundingClientRect();
-  indicator.style.left = (rect.left - navRect.left) + 'px';
-  indicator.style.width = rect.width + 'px';
+  const r = el.getBoundingClientRect();
+  const n = nav.getBoundingClientRect();
+  indicator.style.left = (r.left - n.left) + 'px';
+  indicator.style.width = r.width + 'px';
 }
-
-// 초기 위치
 moveIndicator(activeLink);
 
 links.forEach(link=>{
-  // 클릭 시 기준 메뉴 변경
-  link.addEventListener('click', ()=>{
-    activeLink = link;
-    moveIndicator(link);
-  });
-
-  // 마우스 올렸을 때 이동
-  link.addEventListener('mouseenter', ()=>{
-    moveIndicator(link);
-  });
+  link.addEventListener('click', ()=>{ activeLink = link; moveIndicator(link); });
+  link.addEventListener('mouseenter', ()=> moveIndicator(link));
 });
+nav.addEventListener('mouseleave', ()=> moveIndicator(activeLink));
 
-// 네비게이션에서 마우스가 벗어나면 마지막 클릭 위치로 복귀
-nav.addEventListener('mouseleave', ()=>{
-  moveIndicator(activeLink);
+/* 접기 / 펼치기 */
+const btn = document.getElementById('toggleBtn');
+const main = document.getElementById('content');
+let folded = false;
+
+btn.addEventListener('click', ()=>{
+  folded = !folded;
+  main.classList.toggle('folded');
+  btn.textContent = folded ? '내용 펼치기 ▼' : '내용 접기 ▲';
 });
 </script>
 
