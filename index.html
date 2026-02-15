@@ -41,6 +41,7 @@ header p{
   color:var(--muted);
 }
 
+/* ================= 네비게이션 ================= */
 nav{
   display:flex;
   justify-content:center;
@@ -49,17 +50,29 @@ nav{
   background:var(--card);
   padding:14px;
   border-bottom:5px solid var(--border);
+  position:relative;
 }
 
 nav a{
   color:var(--accent);
   text-decoration:none;
   font-weight:600;
+  padding:6px 4px;
 }
 
 nav a:hover{
   text-decoration:underline;
 }
+
+/* 이동하는 흰색 줄 */
+.nav-indicator{
+  position:absolute;
+  top:6px;
+  height:2px;
+  background:white;
+  transition:left 0.3s ease, width 0.3s ease;
+}
+/* ================================================= */
 
 main{
   max-width:1100px;
@@ -127,6 +140,8 @@ footer{
 </header>
 
 <nav>
+  <div class="nav-indicator"></div>
+
   <a href="#overview">소개</a>
   <a href="#symbols">국기 · 지도</a>
   <a href="#history">역사</a>
@@ -197,47 +212,60 @@ footer{
 
 <section id="politics">
   <h2>정치</h2>
-  <p>
-    보통선거제를 도입한 민주주의 국가이다.
-  </p>
+  <p>보통선거제를 도입한 민주주의 국가이다.</p>
 </section>
 
 <section id="Administrative">
   <h2>행정</h2>
-  <p>
-    주 · 준주 · 군 체계의 행정 구역을 가진다.
-  </p>
+  <p>주 · 준주 · 군 체계의 행정 구역을 가진다.</p>
 </section>
 
 <section id="culture">
   <h2>문화 · 언어</h2>
-  <p>
-    찰리아어는 교착어이며,
-    문화가 발전해있다.
-  </p>
+  <p>찰리아어는 교착어이며, 문화가 발전해있다.</p>
 </section>
 
 <section id="military">
   <h2>군사</h2>
-  <p>
-    상비군 체제와 국경 방위군을 보유한다.
-  </p>
+  <p>상비군 체제와 국경 방위군을 보유한다.</p>
 </section>
 
 <section id="diplomacy">
   <h2>외교</h2>
-  <p>
-    속국과의 종주 관계를 유지한다.
-  </p>
+  <p>속국과의 종주 관계를 유지한다.</p>
 </section>
 
 </main>
 
 <footer>
-    찰리아 공화국 정부
+  찰리아 공화국 정부
+</footer>
+
 <footer>
-문의 <a href="ansdml.html">여기를 클릭하여 문의해 주세요</a>.
-<footer>
+  문의 <a href="ansdml.html">여기를 클릭하여 문의해 주세요</a>.
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+const indicator = document.querySelector('.nav-indicator');
+const links = nav.querySelectorAll('a');
+
+function moveIndicator(el){
+  const rect = el.getBoundingClientRect();
+  const navRect = nav.getBoundingClientRect();
+  indicator.style.left = (rect.left - navRect.left) + 'px';
+  indicator.style.width = rect.width + 'px';
+}
+
+// 초기 위치
+moveIndicator(links[0]);
+
+links.forEach(link=>{
+  link.addEventListener('click', ()=>{
+    moveIndicator(link);
+  });
+});
+</script>
 
 </body>
 </html>
