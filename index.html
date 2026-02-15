@@ -11,7 +11,6 @@
   --card:#7f7f7f;
   --border:#30363d;
   --text:#ffffff;
-  --muted:#ffffff;
   --accent:#ffffff;
 }
 
@@ -19,33 +18,20 @@
 
 body{
   margin:0;
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-family:"Segoe UI", Roboto, Arial, sans-serif;
   background:var(--bg);
   color:var(--text);
 }
 
 header{
   background:#010409;
-  border-bottom:1px solid var(--border);
   padding:30px;
   text-align:center;
 }
 
-header h1{
-  margin:0;
-  font-size:2.2em;
-}
-
-header p{
-  margin-top:8px;
-  color:var(--muted);
-}
-
-/* ================= 네비게이션 ================= */
 nav{
   display:flex;
   justify-content:center;
-  flex-wrap:wrap;
   gap:14px;
   background:var(--card);
   padding:14px;
@@ -54,59 +40,36 @@ nav{
 }
 
 nav a{
-  color:var(--accent);
+  color:white;
   text-decoration:none;
   font-weight:600;
-  padding:6px 4px;
 }
 
-nav a:hover{
-  text-decoration:underline;
-}
-
-/* 이동하는 흰색 줄 */
-.nav-indicator{
-  position:absolute;
-  top:6px;
-  height:2px;
-  background:white;
-  transition:left 0.25s ease, width 0.25s ease;
-}
-/* ============================================ */
-
-/* ===== 접기 버튼 ===== */
-.toggle-wrap{
-  text-align:center;
-  background:var(--card);
+/* ===== 섹션 접기 버튼 ===== */
+.section-tabs{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  background:#8a8a8a;
+  padding:10px;
   border-bottom:5px solid var(--border);
 }
 
-#toggleBtn{
+.section-tabs button{
   background:none;
-  border:none;
+  border:1px solid white;
   color:white;
-  font-size:14px;
-  padding:8px 18px;
+  padding:6px 12px;
   cursor:pointer;
   font-weight:600;
 }
-/* ==================== */
+/* ========================= */
 
 main{
   max-width:1100px;
   margin:auto;
   padding:30px;
-  overflow:hidden;
-  transition:max-height 0.45s ease, opacity 0.35s ease;
-  max-height:5000px;
-  opacity:1;
-}
-
-main.folded{
-  max-height:0;
-  opacity:0;
-  padding-top:0;
-  padding-bottom:0;
 }
 
 section{
@@ -115,48 +78,25 @@ section{
   border-radius:8px;
   padding:24px;
   margin-bottom:30px;
+
+  overflow:hidden;
+  transition:max-height 0.4s ease, opacity 0.3s ease;
+  max-height:2000px;
+  opacity:1;
+}
+
+section.folded{
+  max-height:0;
+  opacity:0;
+  padding-top:0;
+  padding-bottom:0;
+  border-width:0;
+  margin-bottom:0;
 }
 
 section h2{
   margin-top:0;
   border-bottom:5px solid var(--border);
-  padding-bottom:8px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-}
-
-.info-box{
-  background:#0d1117;
-  border:5px solid var(--border);
-  border-radius:6px;
-  padding:16px;
-}
-
-.info-box h3{
-  margin-top:0;
-  font-size:1.05em;
-}
-
-img{
-  max-width:100%;
-  border-radius:6px;
-  border:1px solid var(--border);
-}
-
-.timeline li{
-  margin-bottom:10px;
-}
-
-footer{
-  text-align:center;
-  padding:20px;
-  color:var(--muted);
-  border-top:5px solid var(--border);
-  background:#010409;
 }
 </style>
 </head>
@@ -169,8 +109,6 @@ footer{
 </header>
 
 <nav>
-  <div class="nav-indicator"></div>
-
   <a href="#overview">소개</a>
   <a href="#symbols">국기 · 지도</a>
   <a href="#history">역사</a>
@@ -181,81 +119,69 @@ footer{
   <a href="#diplomacy">외교</a>
 </nav>
 
-<!-- 접기 / 펼치기 버튼 -->
-<div class="toggle-wrap">
-  <button id="toggleBtn">내용 접기 ▲</button>
+<!-- 🔽 섹션 접기 컨트롤 -->
+<div class="section-tabs">
+  <button data-target="overview">소개</button>
+  <button data-target="symbols">국기 · 지도</button>
+  <button data-target="history">역사</button>
+  <button data-target="politics">정치</button>
+  <button data-target="Administrative">행정</button>
+  <button data-target="culture">문화 · 언어</button>
+  <button data-target="military">군사</button>
+  <button data-target="diplomacy">외교</button>
 </div>
 
-<main id="content">
+<main>
 
 <section id="overview">
   <h2>소개</h2>
-  <div class="grid">
-    <div class="info-box"><h3>정식 국명</h3>찰리아 공화국</div>
-    <div class="info-box"><h3>수도</h3>민티아</div>
-    <div class="info-box"><h3>체제</h3>사회민주주의</div>
-    <div class="info-box"><h3>공용어</h3>찰리아어</div>
-  </div>
+  <p>찰리아 공화국은 사회민주주의 국가이다.</p>
 </section>
 
 <section id="symbols">
   <h2>국기 · 지도</h2>
-  <div class="grid">
-    <div><h3>국기</h3><img src="flag.png"></div>
-    <div><h3>영토 지도</h3><img src="map.png"></div>
-  </div>
+  <p>국기와 영토 지도</p>
 </section>
 
 <section id="history">
   <h2>역사</h2>
-  <ul class="timeline">
-    <li><b>420년</b> – 타마티리시리아 왕국</li>
-    <li><b>1218년</b> – 아리니아 왕정 수립</li>
-    <li><b>1981년</b> – 찰리아 공화국</li>
-  </ul>
+  <p>국가의 역사</p>
 </section>
 
-<section id="politics"><h2>정치</h2><p>보통선거 민주주의</p></section>
-<section id="Administrative"><h2>행정</h2><p>주 · 준주 · 군</p></section>
-<section id="culture"><h2>문화 · 언어</h2><p>찰리아어</p></section>
-<section id="military"><h2>군사</h2><p>상비군</p></section>
-<section id="diplomacy"><h2>외교</h2><p>종주 관계</p></section>
+<section id="politics">
+  <h2>정치</h2>
+  <p>보통선거제를 도입한 민주주의 국가이다.</p>
+</section>
+
+<section id="Administrative">
+  <h2>행정</h2>
+  <p>주 · 준주 · 군 체계</p>
+</section>
+
+<section id="culture">
+  <h2>문화 · 언어</h2>
+  <p>찰리아어는 교착어이다.</p>
+</section>
+
+<section id="military">
+  <h2>군사</h2>
+  <p>상비군 체제</p>
+</section>
+
+<section id="diplomacy">
+  <h2>외교</h2>
+  <p>종주 관계 유지</p>
+</section>
 
 </main>
 
-<footer>찰리아 공화국 정부</footer>
-<footer>문의 <a href="ansdml.html">여기를 클릭하여 문의해 주세요</a>.</footer>
-
 <script>
-/* 네비게이션 흰색 줄 */
-const nav = document.querySelector('nav');
-const indicator = document.querySelector('.nav-indicator');
-const links = nav.querySelectorAll('a');
-let activeLink = links[0];
-
-function moveIndicator(el){
-  const r = el.getBoundingClientRect();
-  const n = nav.getBoundingClientRect();
-  indicator.style.left = (r.left - n.left) + 'px';
-  indicator.style.width = r.width + 'px';
-}
-moveIndicator(activeLink);
-
-links.forEach(link=>{
-  link.addEventListener('click', ()=>{ activeLink = link; moveIndicator(link); });
-  link.addEventListener('mouseenter', ()=> moveIndicator(link));
-});
-nav.addEventListener('mouseleave', ()=> moveIndicator(activeLink));
-
-/* 접기 / 펼치기 */
-const btn = document.getElementById('toggleBtn');
-const main = document.getElementById('content');
-let folded = false;
-
-btn.addEventListener('click', ()=>{
-  folded = !folded;
-  main.classList.toggle('folded');
-  btn.textContent = folded ? '내용 펼치기 ▼' : '내용 접기 ▲';
+document.querySelectorAll('.section-tabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const id = btn.dataset.target;
+    const section = document.getElementById(id);
+    section.classList.toggle('folded');
+  });
 });
 </script>
 
