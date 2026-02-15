@@ -70,7 +70,7 @@ nav a:hover{
   top:6px;
   height:2px;
   background:white;
-  transition:left 0.3s ease, width 0.3s ease;
+  transition:left 0.25s ease, width 0.25s ease;
 }
 /* ================================================= */
 
@@ -250,6 +250,8 @@ const nav = document.querySelector('nav');
 const indicator = document.querySelector('.nav-indicator');
 const links = nav.querySelectorAll('a');
 
+let activeLink = links[0];
+
 function moveIndicator(el){
   const rect = el.getBoundingClientRect();
   const navRect = nav.getBoundingClientRect();
@@ -258,12 +260,24 @@ function moveIndicator(el){
 }
 
 // 초기 위치
-moveIndicator(links[0]);
+moveIndicator(activeLink);
 
 links.forEach(link=>{
+  // 클릭 시 기준 메뉴 변경
   link.addEventListener('click', ()=>{
+    activeLink = link;
     moveIndicator(link);
   });
+
+  // 마우스 올렸을 때 이동
+  link.addEventListener('mouseenter', ()=>{
+    moveIndicator(link);
+  });
+});
+
+// 네비게이션에서 마우스가 벗어나면 마지막 클릭 위치로 복귀
+nav.addEventListener('mouseleave', ()=>{
+  moveIndicator(activeLink);
 });
 </script>
 
