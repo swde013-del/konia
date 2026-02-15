@@ -2,185 +2,239 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>찰리아 공화국</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>가상국가 위키</title>
 
 <style>
-:root{
-  --bg:#66c1fe;
-  --card:#7f7f7f;
-  --border:#30363d;
-  --text:#ffffff;
-  --accent:#ffffff;
-}
-
-*{box-sizing:border-box}
-
+/* ===== 기본 ===== */
 body{
   margin:0;
-  font-family:"Segoe UI", Roboto, Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  background:#111;
+  color:#fff;
 }
 
-header{
-  background:#010409;
-  padding:30px;
-  text-align:center;
-}
+a{ text-decoration:none; color:inherit; }
 
-nav{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  background:var(--card);
-  padding:14px;
-  border-bottom:5px solid var(--border);
+/* ===== 상단 메뉴 ===== */
+.nav{
   position:relative;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-}
-
-/* ===== 섹션 접기 버튼 ===== */
-.section-tabs{
   display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  background:#8a8a8a;
-  padding:10px;
-  border-bottom:5px solid var(--border);
+  gap:32px;
+  padding:20px 30px;
+  background:#000;
 }
 
-.section-tabs button{
-  background:none;
-  border:1px solid white;
-  color:white;
-  padding:6px 12px;
+.nav-item{
+  position:relative;
   cursor:pointer;
-  font-weight:600;
-}
-/* ========================= */
-
-main{
-  max-width:1100px;
-  margin:auto;
-  padding:30px;
+  padding:6px 0;
+  font-size:16px;
+  opacity:0.85;
 }
 
-section{
-  background:var(--card);
-  border:5px solid var(--border);
-  border-radius:8px;
-  padding:24px;
-  margin-bottom:30px;
+.nav-item:hover{
+  opacity:1;
+}
 
+/* 흰색 이동 라인 */
+.nav-line{
+  position:absolute;
+  top:12px;
+  height:2px;
+  background:#fff;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+/* ===== 섹션 ===== */
+.container{
+  max-width:900px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+.toggle-section{
+  margin-bottom:24px;
+  border-radius:6px;
+  background:#1c1c1c;
   overflow:hidden;
-  transition:max-height 0.4s ease, opacity 0.3s ease;
+}
+
+/* 섹션 헤더 */
+.section-header{
+  background:#2a2a2a;
+  padding:14px 18px;
+  cursor:pointer;
+  user-select:none;
+}
+
+.section-header h2{
+  margin:0;
+  font-size:18px;
+}
+
+/* 접힘/펼침 애니메이션 */
+.section-content{
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.toggle-section.open .section-content{
   max-height:2000px;
   opacity:1;
 }
 
-section.folded{
-  max-height:0;
-  opacity:0;
-  padding-top:0;
-  padding-bottom:0;
-  border-width:0;
-  margin-bottom:0;
+/* ===== 소개 섹션 전용 ===== */
+.section-summary,
+.section-detail{
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  overflow:hidden;
 }
 
-section h2{
-  margin-top:0;
-  border-bottom:5px solid var(--border);
+.section-summary{
+  padding:16px 18px;
+  max-height:200px;
+  opacity:1;
+}
+
+.section-detail{
+  max-height:0;
+  opacity:0;
+  padding:0 18px;
+}
+
+.toggle-section.open .section-summary{
+  max-height:0;
+  opacity:0;
+  padding:0 18px;
+}
+
+.toggle-section.open .section-detail{
+  max-height:1000px;
+  opacity:1;
+  padding:18px;
+}
+
+/* 카드 그리드 */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap:14px;
+}
+
+.info-box{
+  background:#262626;
+  padding:12px;
+  border-radius:6px;
+}
+
+.info-box h3{
+  margin:0 0 6px;
+  font-size:14px;
+  color:#ccc;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>찰리아 공화국</h1>
-  <p>가상국가 공식 문서</p>
-</header>
-
-<nav>
-  <a href="#overview">소개</a>
-  <a href="#symbols">국기 · 지도</a>
-  <a href="#history">역사</a>
-  <a href="#politics">정치</a>
-  <a href="#Administrative">행정</a>
-  <a href="#culture">문화 · 언어</a>
-  <a href="#military">군사</a>
-  <a href="#diplomacy">외교</a>
+<!-- ===== 메뉴 ===== -->
+<nav class="nav">
+  <div class="nav-line"></div>
+  <div class="nav-item" data-target="overview">소개</div>
+  <div class="nav-item" data-target="politics">정치</div>
+  <div class="nav-item" data-target="administration">행정</div>
 </nav>
 
-<!-- 🔽 섹션 접기 컨트롤 -->
-<div class="section-tabs">
-  <button data-target="overview">소개</button>
-  <button data-target="symbols">국기 · 지도</button>
-  <button data-target="history">역사</button>
-  <button data-target="politics">정치</button>
-  <button data-target="Administrative">행정</button>
-  <button data-target="culture">문화 · 언어</button>
-  <button data-target="military">군사</button>
-  <button data-target="diplomacy">외교</button>
+<!-- ===== 내용 ===== -->
+<div class="container">
+
+  <!-- 소개 -->
+  <section class="toggle-section" id="overview">
+    <div class="section-header">
+      <h2>소개</h2>
+    </div>
+
+    <div class="section-content">
+      <div class="section-summary">
+        찰리아 공화국은 사회민주주의 국가이다.
+      </div>
+
+      <div class="section-detail">
+        <div class="grid">
+          <div class="info-box">
+            <h3>정식 국명</h3>
+            찰리아 공화국
+          </div>
+          <div class="info-box">
+            <h3>수도</h3>
+            민티아
+          </div>
+          <div class="info-box">
+            <h3>체제</h3>
+            사회민주주의
+          </div>
+          <div class="info-box">
+            <h3>공용어</h3>
+            찰리아어
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 정치 -->
+  <section class="toggle-section" id="politics">
+    <div class="section-header">
+      <h2>정치</h2>
+    </div>
+    <div class="section-content" style="padding:16px 18px;">
+      대통령 중심의 공화국이며 단원제 의회를 가진다.
+    </div>
+  </section>
+
+  <!-- 행정 -->
+  <section class="toggle-section" id="administration">
+    <div class="section-header">
+      <h2>행정</h2>
+    </div>
+    <div class="section-content" style="padding:16px 18px;">
+      5개 주와 22개 행정구로 구성된다.
+    </div>
+  </section>
+
 </div>
 
-<main>
-
-<section id="overview">
-  <h2>소개</h2>
-  <p>찰리아 공화국은 사회민주주의 국가이다.</p>
-</section>
-
-<section id="symbols">
-  <h2>국기 · 지도</h2>
-  <p>국기와 영토 지도</p>
-</section>
-
-<section id="history">
-  <h2>역사</h2>
-  <p>국가의 역사</p>
-</section>
-
-<section id="politics">
-  <h2>정치</h2>
-  <p>보통선거제를 도입한 민주주의 국가이다.</p>
-</section>
-
-<section id="Administrative">
-  <h2>행정</h2>
-  <p>주 · 준주 · 군 체계</p>
-</section>
-
-<section id="culture">
-  <h2>문화 · 언어</h2>
-  <p>찰리아어는 교착어이다.</p>
-</section>
-
-<section id="military">
-  <h2>군사</h2>
-  <p>상비군 체제</p>
-</section>
-
-<section id="diplomacy">
-  <h2>외교</h2>
-  <p>종주 관계 유지</p>
-</section>
-
-</main>
-
 <script>
-document.querySelectorAll('.section-tabs button').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const id = btn.dataset.target;
-    const section = document.getElementById(id);
-    section.classList.toggle('folded');
+/* ===== 메뉴 라인 ===== */
+const nav = document.querySelector('.nav');
+const line = document.querySelector('.nav-line');
+const items = document.querySelectorAll('.nav-item');
+
+function moveLine(el){
+  const rect = el.getBoundingClientRect();
+  const navRect = nav.getBoundingClientRect();
+  line.style.left = (rect.left - navRect.left) + 'px';
+  line.style.width = rect.width + 'px';
+}
+
+moveLine(items[0]);
+
+items.forEach(item=>{
+  item.addEventListener('mouseenter', ()=>moveLine(item));
+  item.addEventListener('click', ()=>{
+    moveLine(item);
+    document.getElementById(item.dataset.target)
+      ?.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+/* ===== 섹션 접기/펼치기 ===== */
+document.querySelectorAll('.section-header').forEach(header=>{
+  header.addEventListener('click', ()=>{
+    header.parentElement.classList.toggle('open');
   });
 });
 </script>
