@@ -2,13 +2,13 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>코니아 위키</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>찰리아 공화국</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
-  --bg:#0d1117;
-  --panel:#161b22;
+  --bg:#0f1117;
+  --card:#161b22;
   --border:#30363d;
   --text:#e6edf3;
   --muted:#8b949e;
@@ -19,137 +19,209 @@
 
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,system-ui;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
   background:var(--bg);
   color:var(--text);
 }
 
-/* 레이아웃 */
-.wrapper{
+header{
+  background:#010409;
+  border-bottom:1px solid var(--border);
+  padding:30px;
+  text-align:center;
+}
+
+header h1{
+  margin:0;
+  font-size:2.2em;
+}
+
+header p{
+  margin-top:8px;
+  color:var(--muted);
+}
+
+nav{
   display:flex;
-  min-height:100vh;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+  background:var(--card);
+  padding:14px;
+  border-bottom:1px solid var(--border);
 }
 
-/* 사이드바 */
-.sidebar{
-  width:260px;
-  background:var(--panel);
-  border-right:1px solid var(--border);
-  padding:16px;
-}
-
-.sidebar h1{
-  font-size:18px;
-  margin:0 0 12px;
-}
-
-.sidebar a{
-  display:block;
-  padding:8px 10px;
-  margin-bottom:4px;
-  color:var(--text);
+nav a{
+  color:var(--accent);
   text-decoration:none;
-  border-radius:6px;
-}
-
-.sidebar a:hover{
-  background:#21262d;
-}
-
-.sidebar a.active{
-  background:var(--accent);
-  color:#000;
   font-weight:600;
 }
 
-/* 본문 */
-.content{
-  flex:1;
-  padding:32px;
-  max-width:900px;
+nav a:hover{
+  text-decoration:underline;
 }
 
-.content h2{
-  border-bottom:1px solid var(--border);
-  padding-bottom:6px;
-  margin-top:32px;
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
 }
 
-.content p{
-  line-height:1.7;
-  color:var(--muted);
-}
-
-.content code{
-  background:#161b22;
+section{
+  background:var(--card);
   border:1px solid var(--border);
-  padding:2px 6px;
-  border-radius:6px;
-  color:#c9d1d9;
-}
-
-pre{
-  background:#161b22;
-  border:1px solid var(--border);
-  padding:16px;
   border-radius:8px;
-  overflow:auto;
+  padding:24px;
+  margin-bottom:30px;
 }
 
-/* 상단 헤더 */
-.header{
-  margin-bottom:24px;
+section h2{
+  margin-top:0;
+  border-bottom:1px solid var(--border);
+  padding-bottom:8px;
 }
 
-.header h2{
-  margin:0;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
 }
 
-.footer{
-  margin-top:64px;
-  font-size:13px;
+.info-box{
+  background:#0d1117;
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:16px;
+}
+
+.info-box h3{
+  margin-top:0;
+  font-size:1.05em;
+}
+
+img{
+  max-width:100%;
+  border-radius:6px;
+  border:1px solid var(--border);
+}
+
+.timeline li{
+  margin-bottom:10px;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
   color:var(--muted);
   border-top:1px solid var(--border);
-  padding-top:16px;
+  background:#010409;
 }
 </style>
 </head>
 
 <body>
-<div class="wrapper">
 
-  <!-- 사이드바 -->
-  <nav class="sidebar">
-    <h1>위키</h1>
-    <a class="active" href="#intro">소개</a>
-  </nav>
+<header>
+  <h1>찰리아 공화국</h1>
+  <p>가상국가 공식 문서</p>
+</header>
 
-  <!-- 본문 -->
-  <main class="content">
+<nav>
+  <a href="#overview">소개</a>
+  <a href="#symbols">국기 · 지도</a>
+  <a href="#history">역사</a>
+  <a href="#politics">정치</a>
+  <a href="#culture">문화</a>
+  <a href="#military">군사</a>
+</nav>
 
-    <div class="header">
-      <h2 id="intro">코니아 위키</h2>
-      <p>위키입니다.</p>
+<main>
+
+<section id="overview">
+  <h2>소개</h2>
+  <div class="grid">
+    <div class="info-box">
+      <h3>정식 국명</h3>
+      찰리아 공화국
     </div>
-
-    <h2 id="install">설치</h2>
-    <p>다음 명령어로 프로젝트를 설치할 수 있습니다.</p>
-    <pre><code>git clone https://github.com/username/project.git</code></pre>
-
-    <h2 id="usage">사용법</h2>
-    <p>설치 후 아래와 같이 실행합니다.</p>
-    <pre><code>npm install
-npm run dev</code></pre>
-
-    <h2 id="faq">FAQ</h2>
-    <p><strong>Q.</strong> 이 위키는 어디에 쓰나요?</p>
-    <p><strong>A.</strong> GitHub Wiki 또는 GitHub Pages에서 문서용으로 사용합니다.</p>
-
-    <div class="footer">
-      © 2026 Project Wiki · GitHub Style
+    <div class="info-box">
+      <h3>수도</h3>
+      민티아
     </div>
+    <div class="info-box">
+      <h3>체제</h3>
+      사회민주주의
+    </div>
+    <div class="info-box">
+      <h3>공용어</h3>
+      찰리아어
+    </div>
+  </div>
+</section>
 
-  </main>
-</div>
+<section id="symbols">
+  <h2>국기 · 지도</h2>
+  <div class="grid">
+    <div>
+      <h3>국기</h3>
+      <img src="flag.png" alt="국기">
+    </div>
+    <div>
+      <h3>영토 지도</h3>
+      <img src="map.png" alt="지도">
+    </div>
+  </div>
+</section>
+
+<section id="history">
+  <h2>역사</h2>
+  <ul class="timeline">
+    <li><b>420년</b> – 타마티리시리아 왕국</li>
+    <li><b>1218년</b> – 아리니아 왕정 수립</li>
+    <li><b>1253년</b> – 타마리아 내전</li>
+    <li><b>1257년</b> – 타마리아 왕정 수립</li>
+    <li><b>1410년</b> – 아리아에서 수리아로 천도</li>
+    <li><b>1825년</b> – 찰리아 왕국 건국</li>
+    <li><b>1833년</b> – 타마리아 쿠데타</li>
+    <li><b>1835년</b> – 타마리아 공화국 정부 수립</li>
+    <li><b>1836년</b> – 찰리아 공화당 창당</li>
+    <li><b>1839년</b> – 찰리아 공화당 당선</li>
+    <li><b>1849년</b> – 찰리아 공산당 당선</li>
+    <li><b>1857년</b> – 찰리아 민주당 창당</li>
+    <li><b>1963년</b> – 찰리아 공산혁명</li>
+    <li><b>1981년</b> – 찰리아 공화국</li>
+  </ul>
+</section>
+
+<section id="politics">
+  <h2>정치 · 행정</h2>
+  <p>
+    보통선거제를 도입한 민주주의 국가이다.
+    주 · 준주 · 군 체계의 행정 구역을 가진다.
+  </p>
+</section>
+
+<section id="culture">
+  <h2>문화 · 언어</h2>
+  <p>
+    찰리아어는 교착어이며,
+    문화가 발전해있다.
+  </p>
+</section>
+
+<section id="military">
+  <h2>군사 · 외교</h2>
+  <p>
+    상비군 체제와 국경 방위군을 보유하며,
+    속국과의 종주 관계를 유지한다.
+  </p>
+</section>
+
+</main>
+
+<footer>
+    찰리아 공화국
+</footer>
+
 </body>
 </html>
