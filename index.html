@@ -22,7 +22,15 @@
 body{
   margin:0;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background:var(--bg);
+
+  /* ===== 배경 이미지 추가 (이 부분만 변경) ===== */
+  background-image: url("https://pxhere.com/ko/photo/506351?utm_content=shareClip&utm_medium=referral&utm_source=pxhere");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* ============================================ */
+
   color:var(--text);
 }
 
@@ -199,7 +207,8 @@ footer{
     </div>
     <div>
       <h3>영토 지도</h3>
-      <img src="map.png" alt="지도">"보행자, 도로, 
+      <img src="map.png" alt="지도">
+    </div>
   </div>
 </section>
 
@@ -225,7 +234,6 @@ footer{
 
 <section id="politics">
   <h2>정치</h2>
-    </div>
   <p>보통선거제를 도입한 민주주의 국가이다.</p>
 </section>
 
@@ -273,23 +281,19 @@ function moveIndicator(el){
   indicator.style.width = rect.width + 'px';
 }
 
-// 초기 위치
 moveIndicator(activeLink);
 
 links.forEach(link=>{
-  // 클릭 시 기준 메뉴 변경
   link.addEventListener('click', ()=>{
     activeLink = link;
     moveIndicator(link);
   });
 
-  // 마우스 올렸을 때 이동
   link.addEventListener('mouseenter', ()=>{
     moveIndicator(link);
   });
 });
 
-// 네비게이션에서 마우스가 벗어나면 마지막 클릭 위치로 복귀
 nav.addEventListener('mouseleave', ()=>{
   moveIndicator(activeLink);
 });
