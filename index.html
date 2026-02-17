@@ -23,19 +23,17 @@ body{
   margin:0;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
 
-  /* ===== 배경 이미지 추가 (이 부분만 변경) ===== */
   background-image: url("https://c.pxhere.com/photos/bd/ca/tricyclephilippines_roadtransportmotorbike_laoag_motorbikes_traffic_streetscenes_philippines_bridgecamera-506351.jpg!d");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* ============================================ */
 
   color:var(--text);
 }
 
 header{
-  background:#686868
+  background:#5b5b5b; /* ✅ 여기만 변경 (색상 배경) */
   border-bottom:1px solid var(--border);
   padding:30px;
   text-align:center;
@@ -74,7 +72,6 @@ nav a:hover{
   text-decoration:underline;
 }
 
-/* 이동하는 흰색 줄 */
 .nav-indicator{
   position:absolute;
   top:6px;
@@ -82,7 +79,6 @@ nav a:hover{
   background:white;
   transition:left 0.25s ease, width 0.25s ease;
 }
-/* ================================================= */
 
 main{
   max-width:1100px;
@@ -122,18 +118,6 @@ section h2{
   font-size:1.05em;
 }
 
-.button{
-  background:#5b5b5b;
-  border:2px solid var(--border);
-  border-radius:6px;
-  padding:16px;
-}
-
-.button h3{
-  margin-top:0;
-  font-size:1.05em;
-}
-
 img{
   max-width:100%;
   border-radius:6px;
@@ -160,10 +144,9 @@ footer{
   <h1>찰리아 공화국</h1>
   <p>가상국가 공식 문서</p>
 </header>
-  
+
 <nav>
   <div class="nav-indicator"></div>
-
   <a href="#overview">소개</a>
   <a href="#symbols">국기 · 지도</a>
   <a href="#history">역사</a>
@@ -173,7 +156,7 @@ footer{
   <a href="#military">군사</a>
   <a href="#diplomacy">외교</a>
 </nav>
-  
+
 <main>
   
 <section id="overview">
