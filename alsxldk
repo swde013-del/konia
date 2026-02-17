@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>찰리아 공화국 | 민티아</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="umHQQf9HJphzJ8rNKnTFVxVnZryoYvFx2xDY5m7GE3U" />
+
+<style>
+:root{
+  --bg:#020202;
+  --card:#7f7f7f;
+  --border:#cecece;
+  --text:#ffffff;
+  --muted:#ffffff;
+  --accent:#ffffff;
+  --button:#7f7f7f;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+header{
+  background:#636363;
+  border-bottom:1px solid var(--border);
+  padding:30px;
+  text-align:center;
+}
+
+header h1{
+  margin:0;
+  font-size:2.2em;
+}
+
+header p{
+  margin-top:8px;
+  color:var(--muted);
+}
+
+/* ================= 네비게이션 ================= */
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+  background:var(--card);
+  padding:14px;
+  border-bottom:5px solid var(--border);
+  position:relative;
+}
+
+nav a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+  padding:6px 4px;
+}
+
+nav a:hover{
+  text-decoration:underline;
+}
+
+/* 이동하는 흰색 줄 */
+.nav-indicator{
+  position:absolute;
+  top:6px;
+  height:2px;
+  background:white;
+  transition:left 0.25s ease, width 0.25s ease;
+}
+/* ================================================= */
+
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
+
+section{
+  background:var(--card);
+  border:2px solid var(--border);
+  border-radius:8px;
+  padding:24px;
+  margin-bottom:30px;
+}
+
+section h2{
+  margin-top:0;
+  border-bottom:2px solid var(--border);
+  padding-bottom:8px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.info-box{
+  background:#5b5b5b;
+  border:2px solid var(--border);
+  border-radius:6px;
+  padding:16px;
+}
+
+.info-box h3{
+  margin-top:0;
+  font-size:1.05em;
+}
+
+.button{
+  background:#5b5b5b;
+  border:2px solid var(--border);
+  border-radius:6px;
+  padding:16px;
+}
+
+.button h3{
+  margin-top:0;
+  font-size:1.05em;
+}
+
+img{
+  max-width:100%;
+  border-radius:6px;
+  border:1px solid var(--border);
+}
+
+.timeline li{
+  margin-bottom:10px;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
+  border-top:5px solid var(--border);
+  background:#010409;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>민티아</h1>
+  <p>가상국가 공식 문서</p>
+</header>
+
+<nav>
+  <div class="nav-indicator"></div>
+
+  <a href="#overview">소개</a>
+  <a href="#symbols">주기 · 지도</a>
+  <a href="#history">역사</a>
+  <a href="#politics">정치</a>
+  <a href="#Administrative">행정</a>
+  <a href="#culture">문화 · 언어</a>
+  <a href="#military">군사</a>
+  <a href="#diplomacy">외교</a>
+</nav>
+
+<main>
+
+<section id="overview">
+  <h2>소개</h2>
+  <div class="grid">
+    <div class="info-box">
+      <h3>정식 명칭</h3>
+      민티아 제1 경제도시
+    </div>
+    <div class="info-box">
+      <h3>주도</h3>
+      <a href="https://www.google.com" target="_blank">리하코산</a>
+    </div>
+    <div class="info-box">
+      <h3>주지사</h3>
+      안트레이
+    </div>
+    <div class="info-box">
+      <h3>공용어</h3>
+      찰리아어
+    </div>
+  </div>
+</section>
+
+<section id="symbols">
+  <h2>주기 · 지도</h2>
+  <div class="grid">
+    <div>
+      <h3>주기</h3>
+      <img src="flag.png" alt="주기">
+    </div>
+    <div>
+      <h3>영토 지도</h3>
+      <img src="map.png" alt="지도">
+    </div>
+  </div>
+</section>
+
+<section id="history">
+  <h2>역사</h2>
+  <ul class="timeline">
+    <li><b>1410년</b> – 아리아에서 수리아로 천도</li>
+    <li><b>1434년</b> – 민리아로 변경</li>
+    <li><b>1835년</b> – 수리아로 변경</li>
+    <li><b>1847년</b> – 민리아로 변경</li>
+    <li><b>1851년</b> – 민리아 쓰나미 발생</li>
+    <li><b>1853년</b> – 민티아로 변경</li>
+    <li><b>1955년</b> – 민티아 행정 해체 의론</li>
+    <li><b>1962년</b> – 민티아 수도 천도 회의</li>
+    <li><b>1963년</b> – 333 혁명</li>
+    <li><b>1963년</b> – 찰리아 공산혁명</li>
+    <li><b>1964년</b> – 민티아 쿠데타</li>
+    <li><b>1981년</b> – 찰리아 공화국</li>
+    <li><b>1985년</b> – 로나 계혁</li>
+    <li><b>1986년</b> – 남부민티아 자치회 결집</li>
+    <li><b>1992년</b> – 남부민티아 자치시 확정</li>
+  </ul>
+</section>
+
+<section id="politics">
+  <h2>정치</h2>
+  <p>120석 존재</p>
+</section>
+
+<section id="Administrative">
+  <h2>행정</h2>
+  <p>주 · 준주 · 군 체계의 행정 구역을 가진다.</p>
+</section>
+
+<section id="culture">
+  <h2>문화 · 언어</h2>
+  <p>찰리아어는 교착어이며, 문화가 발전해있다.</p>
+</section>
+
+<section id="military">
+  <h2>군사</h2>
+  <p>민티아 제1 보병사단이 존재한다.</p>
+</section>
+
+<section id="diplomacy">
+  <h2>외교</h2>
+  <p>속국과의 종주 관계를 유지한다.</p>
+</section>
+
+</main>
+
+<footer>
+  찰리아 공화국 정부
+</footer>
+
+<footer>
+  문의 <a href="ansdml.html">여기를 클릭하여 문의해 주세요</a>.
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+const indicator = document.querySelector('.nav-indicator');
+const links = nav.querySelectorAll('a');
+
+let activeLink = links[0];
+
+function moveIndicator(el){
+  const rect = el.getBoundingClientRect();
+  const navRect = nav.getBoundingClientRect();
+  indicator.style.left = (rect.left - navRect.left) + 'px';
+  indicator.style.width = rect.width + 'px';
+}
+
+// 초기 위치
+moveIndicator(activeLink);
+
+links.forEach(link=>{
+  // 클릭 시 기준 메뉴 변경
+  link.addEventListener('click', ()=>{
+    activeLink = link;
+    moveIndicator(link);
+  });
+
+  // 마우스 올렸을 때 이동
+  link.addEventListener('mouseenter', ()=>{
+    moveIndicator(link);
+  });
+});
+
+// 네비게이션에서 마우스가 벗어나면 마지막 클릭 위치로 복귀
+nav.addEventListener('mouseleave', ()=>{
+  moveIndicator(activeLink);
+});
+</script>
+
+</body>
+</html>
