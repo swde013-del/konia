@@ -1,247 +1,281 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>찰리아 공화국</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="umHQQf9HJphzJ8rNKnTFVxVnZryoYvFx2xDY5m7GE3U" />
+  <meta charset="UTF-8">
+  <title>찰리아 공화국</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="umHQQf9HJphzJ8rNKnTFVxVnZryoYvFx2xDY5m7GE3U" />
 
-<style>
-:root{
-  --bg:#020202;
-  --card:#7f7f7f;
-  --border:#020202;
-  --text:#ffffff;
-  --muted:#ffffff;
-  --accent:#ffffff;
-  --button:#7f7f7f;
-}
+  <style>
+    :root {
+      --bg:#020202;
+      --card:#7f7f7f;
+      --border:#020202;
+      --text:#ffffff;
+      --muted:#ffffff;
+      --accent:#ffffff;
+      --button:#7f7f7f;
+    }
 
-/* 🌞 라이트 모드 변수 (추가) */
-body.light{
-  --bg:#f5f5f5;
-  --card:#ffffff;
-  --border:#cccccc;
-  --text:#000000;
-  --muted:#444444;
-  --accent:#000000;
-  --button:#dddddd;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-*{box-sizing:border-box}
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background-image: url("https://c.pxhere.com/photos/bd/ca/tricyclephilippines_roadtransportmotorbike_laoag_motorbikes_traffic_streetscenes_philippines_bridgecamera-506351.jpg!d");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--text);
+    }
 
-body{
-  margin:0;
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    header {
+      background: #5b5b5b;
+      border-bottom: 1px solid var(--border);
+      padding: 30px;
+      text-align: center;
+    }
 
-  background-image: url("https://c.pxhere.com/photos/bd/ca/tricyclephilippines_roadtransportmotorbike_laoag_motorbikes_traffic_streetscenes_philippines_bridgecamera-506351.jpg!d");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
 
-  color:var(--text);
-}
+    header p {
+      margin-top: 8px;
+      color: var(--muted);
+    }
 
-header{
-  background:#5b5b5b;
-  border-bottom:1px solid var(--border);
-  padding:30px;
-  text-align:center;
-  position:relative;
-}
+    /* ================= 네비게이션 ================= */
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      background: var(--card);
+      padding: 14px;
+      border-bottom: 5px solid var(--border);
+      position: relative;
+    }
 
-header h1{
-  margin:0;
-  font-size:2.2em;
-}
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 4px;
+    }
 
-header p{
-  margin-top:8px;
-  color:var(--muted);
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-/* 🌙 다크모드 버튼 (추가) */
-.dark-toggle{
-  position:absolute;
-  top:20px;
-  right:20px;
-  padding:6px 14px;
-  border-radius:20px;
-  border:1px solid var(--border);
-  background:var(--button);
-  color:var(--text);
-  cursor:pointer;
-  font-size:13px;
-}
+    .nav-indicator {
+      position: absolute;
+      top: 6px;
+      height: 2px;
+      background: white;
+      transition: left 0.25s ease, width 0.25s ease;
+    }
 
-/* ================= 네비게이션 ================= */
-nav{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:14px;
-  background:var(--card);
-  padding:14px;
-  border-bottom:5px solid var(--border);
-  position:relative;
-}
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px;
+    }
 
-nav a{
-  color:var(--accent);
-  text-decoration:none;
-  font-weight:600;
-  padding:6px 4px;
-}
+    section {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 30px;
+    }
 
-nav a:hover{
-  text-decoration:underline;
-}
+    section h2 {
+      margin-top: 0;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+    }
 
-.nav-indicator{
-  position:absolute;
-  top:6px;
-  height:2px;
-  background:white;
-  transition:left 0.25s ease, width 0.25s ease;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
 
-main{
-  max-width:1100px;
-  margin:auto;
-  padding:30px;
-}
+    .info-box {
+      background: #5b5b5b;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+    }
 
-section{
-  background:var(--card);
-  border:2px solid var(--border);
-  border-radius:8px;
-  padding:24px;
-  margin-bottom:30px;
-}
+    .info-box h3 {
+      margin-top: 0;
+      font-size: 1.05em;
+    }
 
-section h2{
-  margin-top:0;
-  border-bottom:2px solid var(--border);
-  padding-bottom:8px;
-}
+    img {
+      max-width: 100%;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-}
+    .timeline li {
+      margin-bottom: 10px;
+    }
 
-.info-box{
-  background:#5b5b5b;
-  border:2px solid var(--border);
-  border-radius:6px;
-  padding:16px;
-}
-
-.info-box h3{
-  margin-top:0;
-  font-size:1.05em;
-}
-
-img{
-  max-width:100%;
-  border-radius:6px;
-  border:1px solid var(--border);
-}
-
-.timeline li{
-  margin-bottom:10px;
-}
-
-footer{
-  text-align:center;
-  padding:20px;
-  color:var(--muted);
-  border-top:5px solid var(--border);
-  background:#010409;
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      border-top: 5px solid var(--border);
+      background: #010409;
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <h1>찰리아 공화국</h1>
+    <p>가상국가 공식 문서</p>
+  </header>
 
-<header>
-  <h1>찰리아 공화국</h1>
-  <p>가상국가 공식 문서</p>
+  <nav>
+    <div class="nav-indicator"></div>
+    <a href="#overview">소개</a>
+    <a href="#symbols">국기 · 지도</a>
+    <a href="#history">역사</a>
+    <a href="#politics">정치</a>
+    <a href="#Administrative">행정</a>
+    <a href="#culture">문화 · 언어</a>
+    <a href="#military">군사</a>
+    <a href="#diplomacy">외교</a>
+  </nav>
 
-  <!-- 🌙 다크모드 버튼 (추가) -->
-  <button class="dark-toggle" onclick="toggleTheme()">🌙 다크 모드</button>
-</header>
+  <main>
+    <section id="overview">
+      <h2>소개</h2>
+      <div class="grid">
+        <div class="info-box">
+          <h3>정식 국명</h3>
+          찰리아 공화국
+        </div>
+        <div class="info-box">
+          <h3>수도</h3>
+          <a href="http://konias.kro.kr/alsxldk.html" target="_blank">민티아</a>
+        </div>
+        <div class="info-box">
+          <h3>체제</h3>
+          사회민주주의
+        </div>
+        <div class="info-box">
+          <h3>공용어</h3>
+          찰리아어
+        </div>
+      </div>
+    </section>
 
-<nav>
-  <div class="nav-indicator"></div>
-  <a href="#overview">소개</a>
-  <a href="#symbols">국기 · 지도</a>
-  <a href="#history">역사</a>
-  <a href="#politics">정치</a>
-  <a href="#Administrative">행정</a>
-  <a href="#culture">문화 · 언어</a>
-  <a href="#military">군사</a>
-  <a href="#diplomacy">외교</a>
-</nav>
+    <section id="symbols">
+      <h2>국기 · 지도</h2>
+      <div class="grid">
+        <div>
+          <h3>국기</h3>
+          <img src="flag.png" alt="국기">
+        </div>
+        <div>
+          <h3>영토 지도</h3>
+          <img src="map.png" alt="지도">
+        </div>
+      </div>
+    </section>
 
-<main>
-<!-- (중간 내용 전부 원본 그대로) -->
-</main>
+    <section id="history">
+      <h2>역사</h2>
+      <ul class="timeline">
+        <li><b>420년</b> – 타마티리시리아 왕국</li>
+        <li><b>1218년</b> – 아리니아 왕정 수립</li>
+        <li><b>1253년</b> – 타마리아 내전</li>
+        <li><b>1257년</b> – 타마리아 왕정 수립</li>
+        <li><b>1410년</b> – 아리아에서 수리아로 천도</li>
+        <li><b>1825년</b> – 찰리아 왕국 건국</li>
+        <li><b>1833년</b> – 타마리아 쿠데타</li>
+        <li><b>1835년</b> – 타마리아 공화국 정부 수립</li>
+        <li><b>1836년</b> – 찰리아 공화당 창당</li>
+        <li><b>1839년</b> – 찰리아 공화당 당선</li>
+        <li><b>1849년</b> – 찰리아 공산당 당선</li>
+        <li><b>1857년</b> – 찰리아 민주당 창당</li>
+        <li><b>1963년</b> – 찰리아 공산혁명</li>
+        <li><b>1981년</b> – 찰리아 공화국</li>
+      </ul>
+    </section>
 
-<footer>
-  찰리아 공화국 정부
-</footer>
+    <section id="politics">
+      <h2>정치</h2>
+      <p>보통선거제를 도입한 민주주의 국가이다.</p>
+    </section>
 
-<footer>
-  문의 <a href="ansdml.html">여기를 클릭하여 문의해 주세요</a>.
-</footer>
+    <section id="Administrative">
+      <h2>행정</h2>
+      <p>주 · 준주 · 군 체계의 행정 구역을 가진다.</p>
+    </section>
 
-<script>
-/* ================= 네비 인디케이터 (기존) ================= */
-const nav = document.querySelector('nav');
-const indicator = document.querySelector('.nav-indicator');
-const links = nav.querySelectorAll('a');
-let activeLink = links[0];
+    <section id="culture">
+      <h2>문화 · 언어</h2>
+      <p>찰리아어는 교착어이며, 문화가 발전해있다.</p>
+    </section>
 
-function moveIndicator(el){
-  const rect = el.getBoundingClientRect();
-  const navRect = nav.getBoundingClientRect();
-  indicator.style.left = (rect.left - navRect.left) + 'px';
-  indicator.style.width = rect.width + 'px';
-}
-moveIndicator(activeLink);
+    <section id="military">
+      <h2>군사</h2>
+      <p>상비군 체제와 국경 방위군을 보유한다.</p>
+    </section>
 
-links.forEach(link=>{
-  link.addEventListener('click', ()=>{
-    activeLink = link;
-    moveIndicator(link);
-  });
-  link.addEventListener('mouseenter', ()=>{
-    moveIndicator(link);
-  });
-});
-nav.addEventListener('mouseleave', ()=>{
-  moveIndicator(activeLink);
-});
+    <section id="diplomacy">
+      <h2>외교</h2>
+      <p>속국과의 종주 관계를 유지한다.</p>
+    </section>
+  </main>
 
-/* ================= 다크모드 토글 (추가) ================= */
-const btn = document.querySelector('.dark-toggle');
+  <footer>
+    찰리아 공화국 정부
+  </footer>
 
-function toggleTheme(){
-  document.body.classList.toggle('light');
-  const isLight = document.body.classList.contains('light');
-  btn.textContent = isLight ? '🌑 다크 모드' : '🌙 다크 모드';
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-}
+  <footer>
+    문의 <a href="ansdml.html">여기를 클릭하여 문의해 주세요</a>.
+  </footer>
 
-/* 저장된 테마 불러오기 */
-if(localStorage.getItem('theme') === 'light'){
-  document.body.classList.add('light');
-  btn.textContent = '🌑 다크 모드';
-}
-</script>
+  <script>
+    const nav = document.querySelector('nav');
+    const indicator = document.querySelector('.nav-indicator');
+    const links = nav.querySelectorAll('a');
+    let activeLink = links[0];
 
+    function moveIndicator(el) {
+      const rect = el.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      indicator.style.left = (rect.left - navRect.left) + 'px';
+      indicator.style.width = rect.width + 'px';
+    }
+
+    moveIndicator(activeLink);
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        activeLink = link;
+        moveIndicator(link);
+      });
+
+      link.addEventListener('mouseenter', () => {
+        moveIndicator(link);
+      });
+    });
+
+    nav.addEventListener('mouseleave', () => {
+      moveIndicator(activeLink);
+    });
+  </script>
 </body>
 </html>
