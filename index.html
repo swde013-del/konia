@@ -406,6 +406,61 @@
       </div>
     </section>
   </main>
+
+<style>
+body {
+  margin: 0;
+  background: #f4f4f4;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.map-container {
+  position: relative;
+  display: inline-block;
+}
+
+.map-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 지역 클릭 영역 */
+.region {
+  position: absolute;
+  background: rgba(255, 0, 0, 0);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+/* 마우스 올리면 빨개짐 */
+.region:hover {
+  background: rgba(255, 0, 0, 0.35);
+}
+</style>
+</head>
+<body>
+
+<h2>지도</h2>
+
+<div class="map-container">
+  <!-- 지도 이미지 -->
+  <img src="CoaMaker.png" alt="지도">
+
+  <!-- 지역 1 -->
+  <a href="region1.html">
+    <div class="region"
+      style="left: 100px; top: 80px; width: 150px; height: 120px;">
+    </div>
+  </a>
+
+  <!-- 지역 2 -->
+  <a href="region2.html">
+    <div class="region"
+      style="left: 300px; top: 200px; width: 180px; height: 140px;">
+    </div>
+  </a>
   
   <footer>
     찰리아 공화국 정부
