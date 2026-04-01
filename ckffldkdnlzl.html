@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>찰리아 공화국 위키 (로어 위키)</title>
+  <!-- 제목: 공유될 링크의 제목 (약 20자 내외) -->
+  <meta property="og:title" content="찰리아 공화국 위키">
+  
+  <!-- 설명: 미리보기 하단에 표시될 상세 설명 -->
+  <meta property="og:description" content="찰리아 공화국의 위키이자 로어를 정리하는 사이트입니다.">
+  
+  <!-- 이미지: 썸네일 이미지 URL (권장 사이즈: 1200x630px) -->
+  <meta property="og:image" content="https://raw.githubusercontent.com/swde013-del/konia/refs/heads/main/CoaMaker (1).png">
+  
+  <!-- URL: 웹페이지의 정식 URL -->
+  <meta property="og:url" content="http://konias.kro.kr">
+  
+  <!-- 유형: 웹사이트, 블로그 등 -->
+  <meta property="og:type" content="website">
+  
+  <!-- 사이트 이름: 웹사이트 이름 -->
+  <meta property="og:site_name" content="찰리아 공화국 위키">
+</head>
+  <head>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="umHQQf9HJphzJ8rNKnTFVxVnZryoYvFx2xDY5m7GE3U" />
+
+  <style>
+    :root {
+      --bg:#020202;
+      --card:#52c7fe;
+      --border:#ffffff;
+      --text:#ffffff;
+      --muted:#ffffff;
+      --accent:#ffffff;
+      --button:#7f7f7f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background-image: url("https://c.pxhere.com/photos/bd/ca/tricyclephilippines_roadtransportmotorbike_laoag_motorbikes_traffic_streetscenes_philippines_bridgecamera-506351.jpg!d");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--text);
+    }
+
+    header {
+      background: #020202;
+      border-bottom: 1px solid var(--border);
+      padding: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+    
+    /* ================= 네비게이션 ================= */
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      background: var(--card);
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 4px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-indicator {
+      position: absolute;
+      top: 6px;
+      height: 2px;
+      background: white;
+      transition: left 0.25s ease, width 0.25s ease;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 30px;
+    }
+
+    section h2 {
+      margin-top: 0;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .info-box {
+      background: #020202;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .info-box h3 {
+      margin-top: 0;
+      font-size: 1.05em;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .timeline li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      border-top: 5px solid var(--border);
+      background: #010409;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>찰리아 공화국 위키</h1>
+    <p>로어 위키</p></p>
+  </header>
+
+  <nav>
+    <div class="nav-indicator"></div>
+    <a href="#tourism">관광</a>
+    <a href="#overview">개요</a>
+    <a href="#nation">국가</a>
+    <a href="#digression">여담</a>
+  </nav>
+  
+  <main>
+    <section id="tourism">
+      <h2>관광</h2>
+      <div class="grid">
+        <a href="http://konias.kro.kr/alsxldk.html" target="_blank" class="custom-button">
+          <h2>민티아</h2>
+          찰리아의 수도
+          <img src="city-sunset.jpg" alt="민티아">
+          </a>
+
+        <style>
+    .custom-button {
+         /* 색상 조절 */
+         background-color: #020202; /* 배경색 (파란색) */
+         color: white; /* 글자색 */
+    
+         /* 크기 및 모양 조절 */
+         margin-top: 0;
+         border: 1px solid var(--border);
+         padding: 16px; /* 내부 여백 (높이/너비 조절) */
+         font-size: 1.05em; /* 글자 크기 */
+         border-radius: 6px; /* 테두리 둥글게 */
+    
+         /* 링크 스타일 초기화 및 버튼화 */
+         text-decoration: none; /* 밑줄 제거 */
+         display: inline-block; /* 크기 조절 가능하게 설정 */
+         border: none;
+      }
+
+        /* 마우스 올렸을 때 효과 */
+  .custom-button:hover {
+        background-color: #828282;
+      }
+          
+      </style>
+          
+      <div class="grid">
+        <a href="http://konias.kro.kr/ckfflsld.html" target="_blank" class="custom-button">
+          <h2>찰리니아</h2>
+          찰리아의 제2 경제도시
+          <img src="aerial-view-pattaya-beach-thailand.jpg" alt="찰리니아">
+          </a>
+
+        <style>
+    .custom-button {
+         /* 색상 조절 */
+         background-color: #020202; /* 배경색 (파란색) */
+         color: white; /* 글자색 */
+    
+         /* 크기 및 모양 조절 */
+         margin-top: 0;
+         border: 1px solid var(--border);
+         padding: 16px; /* 내부 여백 (높이/너비 조절) */
+         font-size: 1.05em; /* 글자 크기 */
+         border-radius: 6px; /* 테두리 둥글게 */
+    
+         /* 링크 스타일 초기화 및 버튼화 */
+         text-decoration: none; /* 밑줄 제거 */
+         display: inline-block; /* 크기 조절 가능하게 설정 */
+         border: none;
+      }
+
+        /* 마우스 올렸을 때 효과 */
+  .custom-button:hover {
+        background-color: #828282;
+      }
+          </style>
+        </div>
+      </div>
+    </section>
+          
+    <section id="overview">
+      <h2>개요</h2>
+      <div class="grid">
+        <div class="info-box">
+          <h2>정식 국명</h2>
+          찰리아 공화국 위키는 로어를 정리하기 위해 만들어진 위키입니다.
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nation">
+      <h2>국가</h2>
+      <div class="grid">
+        <a href="http://konias.kro.kr/index.html" target="_blank" class="custom-button">
+          찰리아 공화국
+          </a>
+
+        <style>
+    .custom-button {
+         /* 색상 조절 */
+         background-color: #020202; /* 배경색 (파란색) */
+         color: white; /* 글자색 */
+    
+         /* 크기 및 모양 조절 */
+         margin-top: 0;
+         border: 1px solid var(--border);
+         padding: 16px; /* 내부 여백 (높이/너비 조절) */
+         font-size: 1.05em; /* 글자 크기 */
+         border-radius: 6px; /* 테두리 둥글게 */
+    
+         /* 링크 스타일 초기화 및 버튼화 */
+         text-decoration: none; /* 밑줄 제거 */
+         display: inline-block; /* 크기 조절 가능하게 설정 */
+         border: none;
+      }
+
+        /* 마우스 올렸을 때 효과 */
+  .custom-button:hover {
+        background-color: #828282;
+      }
+          
+      </style>
+          
+      <div class="grid">
+        <a href="http://konias.kro.kr/dkfvpfkcmfksem.html" target="_blank" class="custom-button">
+          알페라츠란드
+          </a>
+
+        <style>
+    .custom-button {
+         /* 색상 조절 */
+         background-color: #020202; /* 배경색 (파란색) */
+         color: white; /* 글자색 */
+    
+         /* 크기 및 모양 조절 */
+         margin-top: 0;
+         border: 1px solid var(--border);
+         padding: 16px; /* 내부 여백 (높이/너비 조절) */
+         font-size: 1.05em; /* 글자 크기 */
+         border-radius: 6px; /* 테두리 둥글게 */
+    
+         /* 링크 스타일 초기화 및 버튼화 */
+         text-decoration: none; /* 밑줄 제거 */
+         display: inline-block; /* 크기 조절 가능하게 설정 */
+         border: none;
+      }
+
+        /* 마우스 올렸을 때 효과 */
+  .custom-button:hover {
+        background-color: #828282;
+      }
+          
+      </style>
+          
+      <div class="grid">
+        <a href="http://konias.kro.kr/dkzpfms.html" target="_blank" class="custom-button">
+          아케른
+          </a>
+
+        <style>
+    .custom-button {
+         /* 색상 조절 */
+         background-color: #020202; /* 배경색 (파란색) */
+         color: white; /* 글자색 */
+    
+         /* 크기 및 모양 조절 */
+         margin-top: 0;
+         border: 1px solid var(--border);
+         padding: 16px; /* 내부 여백 (높이/너비 조절) */
+         font-size: 1.05em; /* 글자 크기 */
+         border-radius: 6px; /* 테두리 둥글게 */
+    
+         /* 링크 스타일 초기화 및 버튼화 */
+         text-decoration: none; /* 밑줄 제거 */
+         display: inline-block; /* 크기 조절 가능하게 설정 */
+         border: none;
+      }
+
+        /* 마우스 올렸을 때 효과 */
+  .custom-button:hover {
+        background-color: #828282;
+      }
+          </style>
+          
+      <div class="grid">
+        <a href="http://konias.kro.kr/tifmfeldk.html" target="_blank" class="custom-button">
+          샤를디아
+          </a>
+
+        <style>
+    .custom-button {
+         /* 색상 조절 */
+         background-color: #020202; /* 배경색 (파란색) */
+         color: white; /* 글자색 */
+    
+         /* 크기 및 모양 조절 */
+         margin-top: 0;
+         border: 1px solid var(--border);
+         padding: 16px; /* 내부 여백 (높이/너비 조절) */
+         font-size: 1.05em; /* 글자 크기 */
+         border-radius: 6px; /* 테두리 둥글게 */
+    
+         /* 링크 스타일 초기화 및 버튼화 */
+         text-decoration: none; /* 밑줄 제거 */
+         display: inline-block; /* 크기 조절 가능하게 설정 */
+         border: none;
+      }
+
+        /* 마우스 올렸을 때 효과 */
+  .custom-button:hover {
+        background-color: #828282;
+      }
+          </style>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    찰리아 공화국 정부
+  </footer>
+
+  <footer>
+    <a href="http://konias.kro.kr/ckffldkdnlzl.html" target="_blank">찰리아 위키</a>
+  </footer>
+
+  <footer>
+    <a href="http://konias.kro.kr/ckffldkanstjahrfhr.html" target="_blank">찰리아 공화국 문서 목록</a>
+  </footer>
+  
+  <footer>
+    <a href="http://konias.kro.kr/ansdml.html" target="_blank">문의</a>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('nav');
+    const indicator = document.querySelector('.nav-indicator');
+    const links = nav.querySelectorAll('a');
+    let activeLink = links[0];
+
+    function moveIndicator(el) {
+      const rect = el.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      indicator.style.left = (rect.left - navRect.left) + 'px';
+      indicator.style.width = rect.width + 'px';
+    }
+
+    moveIndicator(activeLink);
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        activeLink = link;
+        moveIndicator(link);
+      });
+
+      link.addEventListener('mouseenter', () => {
+        moveIndicator(link);
+      });
+    });
+
+    nav.addEventListener('mouseleave', () => {
+      moveIndicator(activeLink);
+    });
+  </script>
+</body>
+</html>
