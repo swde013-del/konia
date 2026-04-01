@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>관리자 UI</title>
+
+<style>
+body{
+  font-family: sans-serif;
+  background:#111;
+  color:white;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+/* 로그인 화면 */
+#loginBox{
+  text-align:center;
+  background:#1e1e1e;
+  padding:40px;
+  border-radius:10px;
+}
+
+input{
+  padding:10px;
+  border:none;
+  border-radius:5px;
+  margin-top:10px;
+}
+
+button{
+  padding:10px 20px;
+  margin-top:10px;
+  border:none;
+  border-radius:5px;
+  background:#4CAF50;
+  color:white;
+  cursor:pointer;
+}
+
+/* 관리자 UI */
+#adminUI{
+  display:none;
+  width:90%;
+  max-width:1000px;
+}
+
+.panel{
+  background:#1e1e1e;
+  padding:20px;
+  margin:10px 0;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 로그인 -->
+<div id="loginBox">
+<h2>관리자 로그인</h2>
+<input type="password" id="password" placeholder="1835">
+<br>
+<button onclick="login()">접속</button>
+<p id="msg"></p>
+</div>
+
+<!-- 관리자 UI -->
+<div id="adminUI">
+
+<h1>사이트 관리자 UI</h1>
+
+<div class="panel">
+<h3>사이트 상태</h3>
+<p>정상 작동중</p>
+</div>
+
+<div class="panel">
+<h3>빠른 이동</h3>
+<button onclick="location.href='index.html'">메인 페이지</button>
+<button onclick="location.href='map.html'">지도 관리</button>
+</div>
+
+<div class="panel">
+<h3>관리자 기능</h3>
+<button onclick="alert('기능 추가 가능')">기능 버튼</button>
+</div>
+
+</div>
+
+<script>
+
+const correctPassword = "1234"; // 여기 비밀번호 설정
+
+function login(){
+
+const pw = document.getElementById("password").value;
+
+if(pw === correctPassword){
+
+document.getElementById("loginBox").style.display="none";
+document.getElementById("adminUI").style.display="block";
+
+}else{
+
+document.getElementById("msg").innerText="비밀번호가 틀렸습니다";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
