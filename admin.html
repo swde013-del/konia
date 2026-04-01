@@ -63,7 +63,6 @@ button{
 <h2>관리자 로그인</h2>
 
 <input type="password" id="password" placeholder="비밀번호">
-
 <br><br>
 
 <button onclick="login()">접속</button>
@@ -76,20 +75,12 @@ button{
 
 <h1>사이트 관리자 패널</h1>
 
-<!-- 사이트 통계 -->
 <div class="panel">
-
 <h3>📊 사이트 통계</h3>
-
-<p>방문자 : <span id="visitCount">0</span></p>
-
 <p>관리자 접속 시간 : <span id="time"></span></p>
-
 </div>
 
-<!-- 지도 관리 -->
 <div class="panel">
-
 <h3>🗺 지도 관리</h3>
 
 <button onclick="openPage('map.html')">
@@ -102,9 +93,7 @@ button{
 
 </div>
 
-<!-- 위키 관리 -->
 <div class="panel">
-
 <h3>📝 위키 수정</h3>
 
 <button onclick="openPage('wiki.html')">
@@ -117,14 +106,18 @@ button{
 
 </div>
 
+<div class="panel">
+<button onclick="logout()">로그아웃</button>
+</div>
+
 </div>
 
 <script>
 
-/* 비밀번호 */
-
 const correctPassword = "1835";
 
+
+/* 로그인 */
 
 function login(){
 
@@ -132,27 +125,9 @@ const pw = document.getElementById("password").value;
 
 if(pw === correctPassword){
 
-document.getElementById("loginBox").style.display="none";
-document.getElementById("adminUI").style.display="block";
+localStorage.setItem("adminLogin","true");
 
-/* 접속 시간 */
-
-const now = new Date();
-document.getElementById("time").innerText = now.toLocaleString();
-
-/* 방문자 수 */
-
-let count = localStorage.getItem("visitCount");
-
-if(!count){
-count = 0;
-}
-
-count++;
-
-localStorage.setItem("visitCount",count);
-
-document.getElementById("visitCount").innerText = count;
+showAdmin();
 
 }else{
 
@@ -163,11 +138,43 @@ document.getElementById("msg").innerText="비밀번호가 틀렸습니다";
 }
 
 
+/* 관리자 화면 표시 */
+
+function showAdmin(){
+
+document.getElementById("loginBox").style.display="none";
+document.getElementById("adminUI").style.display="block";
+
+const now = new Date();
+document.getElementById("time").innerText = now.toLocaleString();
+
+}
+
+
 /* 새 창 열기 */
 
 function openPage(page){
 
 window.open(page,"_blank");
+
+}
+
+
+/* 로그아웃 */
+
+function logout(){
+
+localStorage.removeItem("adminLogin");
+location.reload();
+
+}
+
+
+/* 페이지 열릴 때 로그인 상태 확인 */
+
+if(localStorage.getItem("adminLogin") === "true"){
+
+showAdmin();
 
 }
 
